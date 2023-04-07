@@ -25,6 +25,9 @@ def todo_create(request):
             return redirect('todo_detail', pk=todo.pk)
     else:
         form = TodoForm()
+    if form.errors:
+        breakpoint()
+        print()
     return render(request, 'todo/todo_form.html', {'form': form})
 
 
