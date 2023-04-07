@@ -1,0 +1,62 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>ToDo App | Login</title>
+
+    <link rel="canonical" href="/login/">
+
+        <!-- Bootstrap core CSS -->
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/signin.css' %}" rel="stylesheet">
+  </head>
+  <body class="text-center">
+
+<main class="form-signin">
+  <form method="post">
+    {% csrf_token %}
+      <div class="form-floating mb-2">
+        <input name="username" type="text" class="form-control" id="floatingInput" placeholder="username">
+        <label for="floatingInput">Username</label>
+      </div>
+
+    <div class="form-floating mb-2">
+      <input type="password" class="form-control" id="floatingPassword1" placeholder="Password" name="password1">
+      <label for="floatingPassword1">Password</label>
+    </div>
+
+    <div class="form-floating mb-2">
+      <input type="password" class="form-control" id="floatingPassword2" placeholder="Password" name="password2">
+      <label for="floatingPassword2">Confirm Password</label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">SignUp</button>
+    <a href="{% url 'login' %}">already have an account</a>
+
+  </form>
+  {{ form.errors }}
+
+</main>
+  </body>
+</html>

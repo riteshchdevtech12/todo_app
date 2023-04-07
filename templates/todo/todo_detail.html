@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ todo.title }}</h2>
+  <p>{{ todo.description }}</p>
+  {% if todo.completed %}
+    <p>Completed</p>
+  {% else %}
+    <p>Not completed</p>
+  {% endif %}
+  <p>Created at: {{ todo.created_at }}</p>
+  <p>Updated at: {{ todo.updated_at }}</p>
+  <a href="{% url 'todo_edit' pk=todo.pk %}">Edit</a>
+  <form action="{% url 'todo_delete' pk=todo.pk %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+  </form>
+{% endblock %}
